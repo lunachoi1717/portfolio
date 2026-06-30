@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Portfolio — Project Showcase Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafafa;--fg:#0a0a0a;--accent:#ff3b3b;--muted:#888;--card:#fff;--border:#e8e8e8;--dark:#0a0a0a;--r:16px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--fg);font-family:'Manrope','Noto Sans KR',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 3rem;}
+.nav-inner{max-width:1300px;margin:0 auto;height:64px;display:flex;align-items:center;gap:3rem;}
+.logo{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;}
+.logo em{font-style:normal;color:var(--accent);}
+.nav-links{display:flex;gap:2rem;margin-left:auto;}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--fg);}
+.nav-cta{padding:.55rem 1.4rem;background:var(--fg);color:#fff;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .2s;}
+.nav-cta:hover{background:var(--accent);transform:translateY(-1px);}
+/* body::before{content:'대표작';position:absolute;top:88px;left:0;width:100%;text-align:center;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:0;color:var(--fg);pointer-events:none;}*/
+
+/* PROJECT #1 - HERO */
+.product{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 3rem;max-width:1300px;margin:0 auto;}
+#prod1{padding-top:4rem;}
+.product:nth-child(even){direction:rtl;}
+.product:nth-child(even)>*{direction:ltr;}
+.product-info{padding:2rem;}
+.prod-label{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;}
+.prod-label::before{content:'';width:30px;height:1.5px;background:var(--accent);}
+.product-info h2{font-size:clamp(2.5rem,4.5vw,3.8rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.2rem;}
+.product-info h2 em{font-style:italic;font-weight:700;color:var(--accent);}
+.product-info p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:480px;margin-bottom:2rem;}
+.prod-metrics{display:flex;gap:2.5rem;margin-bottom:2rem;}
+.pm{text-align:center;}
+.pm-val{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;display:block;}
+.pm-lbl{font-size:.72rem;color:var(--muted);}
+.prod-btns{display:flex;gap:.8rem;}
+.pbtn{padding:.75rem 1.8rem;border-radius:8px;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;font-family:inherit;border:none;}
+.pbtn-solid{background:var(--fg);color:#fff;}
+.pbtn-solid:hover{background:var(--accent);}
+.pbtn-outline{background:transparent;border:1.5px solid var(--border);color:var(--fg);}
+.pbtn-outline:hover{border-color:var(--fg);}
+.product-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+.prod-card{width:100%;max-width:460px;border-radius:24px;overflow:hidden;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.12);}
+.prod-screen{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;overflow:hidden;}
+.ps1{background:linear-gradient(135deg,#0f0a2e,#1e1060);}
+.ps2{background:linear-gradient(135deg,#0a2e0f,#106020);}
+.ps3{background:linear-gradient(135deg,#2e0a0f,#601020);}
+.ps4{background:linear-gradient(135deg,#0a1e2e,#104060);}
+.prod-screen-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.5rem;background:linear-gradient(to top,rgba(0,0,0,.6),transparent 60%);}
+.pso-title{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.pso-sub{font-size:.78rem;color:rgba(255,255,255,.6);}
+.prod-footer{background:#fff;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.pf-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
+.pf-tag{padding:.2rem .6rem;background:#f4f4f4;border-radius:4px;font-size:.7rem;font-weight:600;color:#666;}
+.pf-stats{display:flex;gap:1rem;font-size:.75rem;color:var(--muted);}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);max-width:1300px;margin:0 auto;}
+
+/* CASE STUDY */
+.case-study{padding:5rem 3rem;max-width:1300px;margin:0 auto;}
+.cs-header{text-align:center;margin-bottom:4rem;}
+.cs-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:.5rem;}
+.cs-header p{color:var(--muted);font-size:1rem;}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.cs-card{background:var(--dark);border-radius:var(--r);padding:2rem;color:#fff;position:relative;overflow:hidden;}
+.cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);}
+.cs-num{font-size:3rem;font-weight:800;letter-spacing:-.04em;opacity:.30;margin-bottom:1rem;}
+.cs-title{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;}
+.cs-desc{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:1rem;}
+.cs-result{display:flex;align-items:center;gap:.5rem;font-size:.82rem;}
+.cs-result-icon{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;}
+.res-good{background:rgba(52,211,153,.15);color:#34d399;}
+.res-up{background:rgba(79,142,247,.15);color:#4f8ef7;}
+
+/* TECH STACK */
+.tech-section{background:var(--dark);padding:5rem 3rem;color:#fff;}
+.tech-inner{max-width:1300px;margin:0 auto;}
+.tech-inner h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;margin-bottom:.5rem;}
+.tech-inner p{color:rgba(255,255,255,.5);margin-bottom:3rem;}
+.tech-categories{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.tc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:1.5rem;}
+.tc-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600;margin-bottom:1rem;}
+.tc-items{display:flex;flex-direction:column;gap:.5rem;}
+.tc-item{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:rgba(255,255,255,.7);}
+.tc-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+
+/* CONTACT */
+.contact-section{padding:6rem 3rem;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.cont-left h2{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1.2rem;}
+.cont-left h2 em{font-style:italic;color:var(--accent);}
+.cont-left p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:.8rem;}
+.cl{display:flex;align-items:center;gap:.8rem;padding:1rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--fg);}
+.cl:hover{border-color:var(--fg);transform:translateX(4px);}
+.cl-icon{width:36px;height:36px;border-radius:8px;background:#f4f4f4;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.cl-info .cl-label{font-size:.7rem;color:var(--muted);}
+.cl-info .cl-val{font-size:.9rem;font-weight:600;}
+.cl-arrow{margin-left:auto;font-size:1rem;color:var(--muted);transition:transform .2s;}
+.cl:hover .cl-arrow{transform:translateX(4px);}
+.contact-form{display:flex;flex-direction:column;gap:1rem;}
+.cf-input{padding:.9rem 1.1rem;background:#fff;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;color:var(--fg);transition:border .2s;}
+.cf-input:focus{outline:none;border-color:var(--fg);}
+textarea.cf-input{resize:vertical;min-height:120px;}
+.cf-submit{padding:.9rem;background:var(--fg);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;}
+.cf-submit:hover{background:var(--accent);}
+
+footer{background:var(--dark);color:rgba(255,255,255,.4);padding:2rem 3rem;display:flex;justify-content:space-between;font-size:.82rem;align-items:center;}
+.footer-logo{font-size:1.2rem;font-weight:800;color:#fff;letter-spacing:-.02em;}
+.footer-logo em{font-style:normal;color:var(--accent);}
+
+@media(max-width:1024px){.product{grid-template-columns:1fr;min-height:auto;padding:4rem 2rem;}.product:nth-child(even){direction:ltr;}.cs-grid{grid-template-columns:1fr 1fr;}.tech-categories{grid-template-columns:1fr 1fr;}.contact-section{grid-template-columns:1fr;}}
+@media(max-width:600px){.cs-grid{grid-template-columns:1fr;}.tech-categories{grid-template-columns:1fr;}.product{padding:3rem 1.5rem;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Luna's Portfolio</div>
+    <div class="nav-links">
+      <a href="#prod1">About Me</a>
+      <a href="#prod2">개인</a>
+      <a href="#prod3">팀</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-cta">Let's Talk →</button>
+  </div>
+</nav>
+
+<!-- PROJECT 1 -->
+<div class="product" id="prod1">
+  <div class="product-info">
+    <div class="prod-label">About Me</div>
+    <h2>AI와 백엔드를<br><em>연결하는</em><br>개발자</h2>
+    <p>비전공자로 시작해 국비지원 AI 개발자 과정을 수료하며 Spring Boot, FastAPI, Vue.js, Python AI 기술을 활용해 실제 작동하는 웹 애플리케이션을 구현해왔습니다.</p>
+    <div class="prod-metrics">
+      <div class="pm"><span class="pm-val">2006</span><div class="pm-lbl">Born</div></div>
+      <div class="pm"><span class="pm-val">5Y</span><div class="pm-lbl">Germany</div></div>
+      <div class="pm"><span class="pm-val">6M</span><div class="pm-lbl">AI Course</div></div>
+    </div>
+    <div class="prod-btns">
+      <a href="about.html" class="pbtn pbtn-solid">🚀 상세보기</a>
+      <a href="#" class="pbtn pbtn-outline">🐙 GitHub</a>
+    </div>
+  </div>
+  <div class="product-visual">
+    <div class="prod-card">
+      <div class="prod-screen ps1">
+        👩‍💻
+        <div class="prod-screen-overlay">
+          <div class="pso-title">AI Full Stack Developer</div>
+          <div class="pso-sub">Spring Boot · FastAPI · Vue.js</div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div class="pf-tags"><span class="pf-tag">Spring Boot</span><span class="pf-tag">FastAPI</span><span class="pf-tag">Vue.js</span></div>
+        <div class="pf-stats"><span>⭐ 43</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROJECT 2 -->
+<div class="product" id="prod2">
+  <div class="product-info">
+    <div class="prod-label">Project #1</div>
+    <h2>AI 주식<br><em>분석</em><br>플랫폼</h2>
+    <p></p>
+    <div class="prod-metrics">
+      <div class="pm"><span class="pm-val">99.2%</span><div class="pm-lbl">Accuracy</div></div>
+      <div class="pm"><span class="pm-val">30fps</span><div class="pm-lbl">Speed</div></div>
+      <div class="pm"><span class="pm-val">-45%</span><div class="pm-lbl">Defects</div></div>
+    </div>
+    <div class="prod-btns">
+      <a href="#" class="pbtn pbtn-solid">🚀 상세보기</a>
+      <a href="#" class="pbtn pbtn-outline">🐙 GitHub</a>
+    </div>
+  </div>
+  <div class="product-visual">
+    <div class="prod-card">
+      <div class="prod-screen ps2">
+        👁️
+        <div class="prod-screen-overlay">
+          <div class="pso-title">AI Stock Analysis System</div>
+          <div class="pso-sub">YOLOv10 · PyTorch · OpenCV</div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div class="pf-tags"><span class="pf-tag">YOLOv10</span><span class="pf-tag">PyTorch</span><span class="pf-tag">CVPR</span></div>
+        <div class="pf-stats"><span>⭐ 21</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROJECT 3 -->
+<div class="product" id="prod3">
+  <div class="product-info">
+    <div class="prod-label">Project #2</div>
+    <h2>차세대<br><em>스마트톨링</em><br>시스템</h2>
+    <p>GPS와 번호판 인식을 기반으로 한 AI 기반 미래형 스마트 톨링 시스템.</p>
+    <div class="prod-metrics">
+      <div class="pm"><span class="pm-val">100+</span><div class="pm-lbl">Models</div></div>
+      <div class="pm"><span class="pm-val">50ms</span><div class="pm-lbl">P99</div></div>
+      <div class="pm"><span class="pm-val">99.9%</span><div class="pm-lbl">Uptime</div></div>
+    </div>
+    <div class="prod-btns">
+      <a href="https://lunachoi1717.github.io/ai_smarttolling/" class="pbtn pbtn-solid">🚀 상세보기</a>
+      <a href="#" class="pbtn pbtn-outline">🐙 GitHub</a>
+    </div>
+  </div>
+  <div class="product-visual">
+    <div class="prod-card">
+      <div class="prod-screen ps3">
+        📊
+        <div class="prod-screen-overlay">
+          <div class="pso-title">Nextgeneration smart tolling system</div>
+          <div class="pso-sub">Kubernetes · MLflow · Triton</div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div class="pf-tags"><span class="pf-tag">Jetson</span><span class="pf-tag">Yolo</span><span class="pf-tag">OpenCV</span></div>
+        <div class="pf-stats"><span>⭐ 186</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY -->
+
+<!-- TECH STACK -->
+<div class="tech-section">
+  <div class="tech-inner">
+    <h2>Technology Stack</h2>
+    <p>실전에서 검증된 최신 AI 기술 스택</p>
+    <div class="tech-categories">
+      <div class="tc"><div class="tc-label">AI / ML</div><div class="tc-items"><div class="tc-item"><div class="tc-dot" style="background:#4f8ef7"></div>PyTorch · TensorFlow</div><div class="tc-item"><div class="tc-dot" style="background:#4f8ef7"></div>Transformers</div><div class="tc-item"><div class="tc-dot" style="background:#4f8ef7"></div>YOLOv10</div></div></div>
+      <div class="tc"><div class="tc-label">Backend</div><div class="tc-items"><div class="tc-item"><div class="tc-dot" style="background:#34d399"></div>Spring Boot · FastAPI</div><div class="tc-item"><div class="tc-dot" style="background:#34d399"></div>PostgreSQL</div></div></div>
+      <div class="tc"><div class="tc-label">Frontend</div><div class="tc-items"><div class="tc-item"><div class="tc-dot" style="background:#f59e0b"></div>Vue.js</div><div class="tc-item"><div class="tc-dot" style="background:#f59e0b"></div>Tailwind CSS</div><div class="tc-item"><div class="tc-dot" style="background:#f59e0b"></div>D3.js · Three.js</div></div></div>
+      <div class="tc"><div class="tc-label">DevOps</div><div class="tc-items"><div class="tc-item"><div class="tc-dot" style="background:#f87171"></div>Docker</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="cont-left">
+    <h2>Ready to<br>Build <em>AI</em><br>Together?</h2>
+    <p>AI 프로젝트 협업, 채용, 프리랜서 수주 모두 환영합니다. 아이디어를 실제 동작하는 AI 서비스로 만들어드립니다.</p>
+    <div class="contact-links">
+      <a href="mailto:jeongmin.luna@gmail.com" class="cl"><div class="cl-icon">✉️</div><div class="cl-info"><div class="cl-label">Email</div><div class="cl-val">jeongmin.luna@gmail.com</div></div><div class="cl-arrow">→</div></a>
+      <a href="#" class="cl"><div class="cl-icon">💼</div><div class="cl-info"><div class="cl-label">LinkedIn</div><div class="cl-val">luna217</div></div><div class="cl-arrow">→</div></a>
+      <a href="#" class="cl"><div class="cl-icon">🐙</div><div class="cl-info"><div class="cl-label">GitHub</div><div class="cl-val">luna217</div></div><div class="cl-arrow">→</div></a>
+    </div>
+  </div>
+  <div class="cont-right">
+    <div class="contact-form">
+      <input class="cf-input" type="text" placeholder="이름">
+      <input class="cf-input" type="email" placeholder="이메일">
+      <input class="cf-input" type="text" placeholder="프로젝트 유형 (예: RAG 챗봇 개발)">
+      <textarea class="cf-input" placeholder="프로젝트 상세 내용"></textarea>
+      <button class="cf-submit">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Luna's Portfolio</div>
+  <span>© 2025 · Seoul, Korea · AI Full Stack Developer</span>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
